@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom';
 const Header = (props) => {
   const title = props.title;
   const showHomeLink = props.showHome;
-  const visibleState = showHomeLink? 'visible' : 'hidden';
-  const pageTitleVis = title? 'block' : 'none';
+  const visibleState = showHomeLink? '' : 'hidden';
+  const pageTitleVis = title? 'block' : '';
 
   return (
     <div>
       <header className="app-header">
-        <Link style={{ visibility: visibleState }}
+        <Link
           to='/'
-          className="home-link"
+          className={`home-link ${visibleState}`}
           alt=""
           title="Home"
         >
@@ -22,11 +22,8 @@ const Header = (props) => {
         <h2 className="app-title">Flashcard Pro</h2>
       </header>
 
-        <h3 className="stack-title"
-          style={{ display: pageTitleVis }}>
-          <i className="fa fa-file-text-o" aria-hidden="true"></i>
+        <h3 className={`stack-title ${pageTitleVis}`}>
           {title}
-          <i className="fa fa-file-text-o" aria-hidden="true"></i>
         </h3>
       </div>
   )

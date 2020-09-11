@@ -7,7 +7,7 @@ import Card from './Card';
  *     - state loss issue when styling and page refreshed
  */
 
-class Stack extends Component {
+export class Stack extends Component {
   constructor() {
     super();
 

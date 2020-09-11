@@ -1,9 +1,25 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
+import { shallow } from 'enzyme';
 import App from '../components/App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe('App', () => {
+  const app = shallow(<App />, { wrapper: MemoryRouter });
+
+  it('renders Header component', () => {
+    expect(app.find("Header")).toHaveLength(1);
+  });
+
+  it('renders Stacklist component', () => {
+    expect(app.find("Connect(StackList)")).toHaveLength(1);
+  })
+
+  it('renders Link to StackForm', ()=> {
+    expect(app.find("Link h4").text()).toEqual('Create a New Stack');
+  });
+
+
+
+
+
 });

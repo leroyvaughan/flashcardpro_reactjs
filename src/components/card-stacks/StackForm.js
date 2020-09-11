@@ -5,7 +5,7 @@ import { Form, FormGroup, FormControl, FormLabel, Button }
  from 'react-bootstrap';
 import { addStack } from '../../store/actions';
 
-class StackForm extends Component {
+export class StackForm extends Component {
   constructor() {
     super(); //add state
 
@@ -49,17 +49,21 @@ class StackForm extends Component {
               return (
                 <div key={card.id} className="card">
                   <FormGroup>
-                    <FormLabel>Prompt:&nbsp;</FormLabel>
-                    <FormControl
-                      onChange={event => {
-                        this.updateCardPart(event, index, "prompt");
-                      }} />
+                    <div>
+                      <FormLabel>Prompt:&nbsp;</FormLabel>
+                      <FormControl
+                        onChange={event => {
+                          this.updateCardPart(event, index, "prompt");
+                        }} />
+                    </div>
 
-                    <FormLabel>Answer&nbsp;</FormLabel>
-                    <FormControl
-                      onChange={event => {
-                        this.updateCardPart(event, index, "answer");
-                      }} />
+                    <div>
+                      <FormLabel>Answer:&nbsp;</FormLabel>
+                      <FormControl
+                        onChange={event => {
+                          this.updateCardPart(event, index, "answer");
+                        }} />
+                    </div>
                   </FormGroup>
                 </div>
               )
@@ -67,9 +71,9 @@ class StackForm extends Component {
           }
 
           <FormGroup id="form-ftr" className="form-edges">
-            <Button onClick={() => this.addCard()}>Add Card</Button>
+            <Button id="addcard-btn" onClick={() => this.addCard()}>Add Card</Button>
 
-            <Button onClick={() => this.addStack()}>
+            <Button id="addstack-btn" onClick={() => this.addStack()}>
               Save and Add the Stack
             </Button>
           </FormGroup>

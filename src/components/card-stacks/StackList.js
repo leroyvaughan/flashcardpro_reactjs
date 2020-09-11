@@ -4,7 +4,7 @@ import stacks from '../../data/stacks.json';
 import { Link } from 'react-router-dom';
 import { loadStacks } from '../../store/actions';
 
-class StackList extends Component {
+export class StackList extends Component {
   componentDidMount() {
     if(this.props.stacks.length === 0){
       this.props.loadStacks(stacks);
@@ -15,14 +15,14 @@ class StackList extends Component {
     return (
       <div className="stacklist">
         {
-          this.props.stacks.map(stack => {
+          this.props.stacks.map((stack, ix) => {
             return (
               <Link
                 to={{
                   pathname: '/stack',
                   stack: stack
                 }}
-                key={stack.id}
+                key={ix}
                 >
                 <h4>{stack.title}</h4>
               </Link>
