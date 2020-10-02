@@ -4,60 +4,63 @@ import rootReducer from '../store/reducers';
 import { stack, stacks } from '../data/fixtures';
 
 
-describe("Redux Store tests", ()=> {
-  it('creates store with inital state', () => {
-    const store = createStore(rootReducer);
-    const testStack = {
-      id: 0, title: 'example', cards: []
-    };
+describe("Index.js Tests", () => {
 
-    store.dispatch(actions.setStack(testStack));
+  describe("Redux Store tests", ()=> {
+    it('creates store with inital state', () => {
+      const store = createStore(rootReducer);
+      const testStack = {
+        id: 0, title: 'example', cards: []
+      };
 
-    expect(store.getState()).toEqual({
-      stack: testStack,
-      stacks: []
+      store.dispatch(actions.setStack(testStack));
+
+      expect(store.getState()).toEqual({
+        stack: testStack,
+        stacks: []
+      });
     });
+
+    //this test is duplicated below in 'Action Tests'
+
   });
 
-  //this test is duplicated below in 'Action Tests'
 
-});
+  describe('Actions Tests', () => {
+    it('sets main stack via action', () => {
+        const expectedAction = {
+          type: actions.SET_STACK,
+          stack
+        };
 
+      expect(actions.setStack(stack))
+        .toEqual(expectedAction);
+    });
 
-describe('Actions Tests', () => {
-  it('sets main stack via action', () => {
+    it('add stack via action', () => {
       const expectedAction = {
-        type: actions.SET_STACK,
+        type: actions.ADD_STACK,
         stack
       };
 
-    expect(actions.setStack(stack))
-      .toEqual(expectedAction);
-  });
+      expect(actions.addStack(stack))
+        .toEqual(expectedAction);
+    });
 
-  it('add stack via action', () => {
-    const expectedAction = {
-      type: actions.ADD_STACK,
-      stack
-    };
+    it('loads stack via action', () => {
+      const expectedAction = {
+        type: actions.LOAD_STACKS,
+        stacks
+      };
 
-    expect(actions.addStack(stack))
-      .toEqual(expectedAction);
-  });
+      expect(actions.loadStacks(stacks)).toEqual(expectedAction);
+    });
 
-  it('loads stack via action', () => {
-    const expectedAction = {
-      type: actions.LOAD_STACKS,
-      stacks
-    };
 
-    expect(actions.loadStacks(stacks)).toEqual(expectedAction);
   });
 
 
 });
-
-
 
 describe("Reducers Tests", () => {
 

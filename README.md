@@ -34,5 +34,56 @@ I didn't clean up my files. Didn't see the use since this isn't a production app
 
 
 
+```
+
+
+> flashcardpro@0.1.0 tests C:\z_storage\projects\REACT\flashcardpro
+> react-scripts test --setupFiles ./src/setupTests.js "--coverage" "--watchAll=false"
+
+ PASS  src/__tests__/Card.test.js
+ PASS  src/__tests__/App.test.js
+ PASS  src/__tests__/Stack.test.js
+ PASS  src/__tests__/Stackform.test.js
+ PASS  src/__tests__/index.test.js
+ PASS  src/__tests__/header.test.js
+ PASS  src/__tests__/Stacklist.test.js
+
+
+*index.js is covered by index.test.js
+
+----------------------------|----------|----------|----------|----------|-------------------|
+File                        |  % Stmts | % Branch |  % Funcs |  % Lines | Uncovered Line #s |
+----------------------------|----------|----------|----------|----------|-------------------|
+All files                   |    88.33 |    78.95 |    89.66 |    88.33 |                   |
+ src                        |        0 |        0 |      100 |        0 |                   |
+  index.js                  |        0 |        0 |      100 |        0 |             13,19 |
+ src/components             |      100 |      100 |      100 |      100 |                   |
+  App.js                    |      100 |      100 |      100 |      100 |                   |
+ src/components/card-stacks |    86.11 |    66.67 |    86.36 |    86.11 |                   |
+  Card.js                   |      100 |      100 |      100 |      100 |                   |
+  Stack.js                  |       90 |       50 |      100 |       90 |                33 |
+  StackForm.js              |     87.5 |      100 |    81.82 |     87.5 |             19,76 |
+  StackList.js              |       60 |       50 |       75 |       60 |             10,38 |
+ src/components/parts       |      100 |      100 |      100 |      100 |                   |
+  header.js                 |      100 |      100 |      100 |      100 |                   |
+ src/data                   |      100 |      100 |      100 |      100 |                   |
+  fixtures.js               |      100 |      100 |      100 |      100 |                   |
+ src/store                  |      100 |      100 |      100 |      100 |                   |
+  actions.js                |      100 |      100 |      100 |      100 |                   |
+  reducers.js               |      100 |      100 |      100 |      100 |                   |
+----------------------------|----------|----------|----------|----------|-------------------|
+
+Test Suites: 7 passed, 7 total
+Tests:       36 passed, 36 total
+Snapshots:   0 total
+Time:        13.462s
+Ran all test suites.
+
+
+
+
+```
+
+
 
 

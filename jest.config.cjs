@@ -7,6 +7,6 @@ module.exports = {
   testPathIgnorePatterns: ["<rootDir>/build/", "<rootDir>/node_modules/"],
   moduleFileExtensions: ["js", "jsx", "mjs"],
   setupFilesAfterEnv: [
-    "<rootDir>src/__Tests__/setupTests.js"
+    "<rootDir>src/setupTests.js"
   ]
 }
